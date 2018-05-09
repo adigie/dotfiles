@@ -214,6 +214,17 @@ bar {
 for_window [class="Pavucontrol"] floating enable
 for_window [class="Kalu"] floating enable
 
+# sound output menu 
+set $mode_sound Output (i) integrated speakers, (h) hdmi
+mode "$mode_sound" {
+    bindsym i exec --no-startup-id pacmd set-card-profile alsa_card.pci-0000_00_1b.0 output:analog-stereo+input:analog-stereo, mode "default"
+    bindsym h exec --no-startup-id pacmd set-card-profile alsa_card.pci-0000_00_1b.0 output:hdmi-stereo+input:analog-stereo, mode "default"
+
+    # back to normal: Enter or Escape
+    bindsym Return mode "default"
+    bindsym Escape mode "default"
+}
+bindsym $mod+Shift+o mode "$mode_sound"
 
 # Multimedia Keys
 
@@ -260,8 +271,8 @@ exec --no-startup-id /usr/lib/polkit-gnome/polkit-gnome-authentication-agent-1
 exec --no-startup-id "compton -cC"
 exec --no-startup-id nm-applet
 exec --no-startup-id blueman-applet
-exec --no-startup-id "nitrogen --restore"
-exec --no-startup-id "sleep 5s && kalu"
 exec --no-startup-id ~/.screenlayout/dp_hdmi_lvds_i3.sh
 exec --no-startup-id ~/.fehbg
+#exec --no-startup-id "nitrogen --restore"
+exec --no-startup-id "sleep 5s && kalu"
 
