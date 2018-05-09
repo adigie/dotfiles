@@ -23,6 +23,10 @@ ln -s $ROOT_DIR/.config/systemd/user/feh.timer ~/.config/systemd/user/feh.timer
 rm -f ~/.config/systemd/user/feh.service
 ln -s $ROOT_DIR/.config/systemd/user/feh.service ~/.config/systemd/user/feh.service
 
+rm -f ~/.config/pulse/daemon.conf
+mkdir -p ~/.config/pulse
+ln -s $ROOT_DIR/.config/pulse/daemon.conf ~/.config/pulse/daemon.conf
+
 systemctl --user daemon-reload
 systemctl --user enable feh.timer
 systemctl --user start feh.timer
