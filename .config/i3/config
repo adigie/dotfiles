@@ -227,6 +227,17 @@ bar {
 for_window [class="Pavucontrol"] floating enable
 for_window [class="Kalu"] floating enable
 
+# sound output menu 
+set $mode_sound Output (a) analog , (h) hdmi
+mode "$mode_sound" {
+    bindsym a exec --no-startup-id pacmd set-card-profile alsa_card.pci-0000_00_1f.3 output:analog-stereo, mode "default"
+    bindsym h exec --no-startup-id pacmd set-card-profile alsa_card.pci-0000_00_1f.3 output:hdmi-stereo, mode "default"
+
+    # back to normal: Enter or Escape
+    bindsym Return mode "default"
+    bindsym Escape mode "default"
+}
+bindsym $mod+Shift+o mode "$mode_sound"
 
 # Multimedia Keys
 
