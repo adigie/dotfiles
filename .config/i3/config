@@ -169,19 +169,30 @@ mode "resize" {
 
 bindsym $mod+r mode "resize"
 
-set $bg-color            #2f343f
-set $inactive-bg-color   #2f343f
-set $text-color          #f3f4f5
-set $inactive-text-color #676e7d
-set $urgent-bg-color     #e53935
-set $indicator-color     #a0a0a0
+#set $bg-color            #2f343f
+#set $inactive-bg-color   #2f343f
+#set $text-color          #f3f4f5
+#set $inactive-text-color #676e7d
+#set $urgent-bg-color     #e53935
+#set $indicator-color     #a0a0a0
+#
+## set window colors
+##                       border             background         text                 indicator
+#client.focused          $bg-color          $bg-color          $text-color          $indicator-color
+#client.unfocused        $inactive-bg-color $inactive-bg-color $inactive-text-color $indicator-color
+#client.focused_inactive $inactive-bg-color $inactive-bg-color $inactive-text-color $indicator-color
+#client.urgent           $urgent-bg-color   $urgent-bg-color   $text-color          $indicator-color
 
-# set window colors
-#                       border             background         text                 indicator
-client.focused          $bg-color          $bg-color          $text-color          $indicator-color
-client.unfocused        $inactive-bg-color $inactive-bg-color $inactive-text-color $indicator-color
-client.focused_inactive $inactive-bg-color $inactive-bg-color $inactive-text-color $indicator-color
-client.urgent           $urgent-bg-color   $urgent-bg-color   $text-color          $indicator-color
+# archlinux theme for i3 by okraits
+# http://okraits.de
+
+# $i3-theme-window
+# class                 border  backgr. text    indicator
+client.focused          #0088CC #0088CC #ffffff #dddddd
+#client.focused_inactive #0C2D3C #0C2D3C #888888 #484e50 # I don't like it that way
+client.focused_inactive #333333 #333333 #888888 #292d2e
+client.unfocused        #333333 #333333 #888888 #292d2e
+client.urgent           #2f343a #900000 #ffffff #900000
 
 
 # Start i3bar to display a workspace bar (plus the system information i3status
@@ -191,14 +202,25 @@ bar {
     #font pango:monospace 9
     font pango:DejaVu Sans Mono,FontAwesome 10
         
-	colors {
-		background $bg-color
-	    	separator #757575
-		#                  border             background         text
-		focused_workspace  $bg-color          $bg-color          $text-color
-		inactive_workspace $inactive-bg-color $inactive-bg-color $inactive-text-color
-		urgent_workspace   $urgent-bg-color   $urgent-bg-color   $text-color
-	}
+	#colors {
+	#	background $bg-color
+	#    	separator #757575
+	#	#                  border             background         text
+	#	focused_workspace  $bg-color          $bg-color          $text-color
+	#	inactive_workspace $inactive-bg-color $inactive-bg-color $inactive-text-color
+	#	urgent_workspace   $urgent-bg-color   $urgent-bg-color   $text-color
+	#}
+	#
+	# $i3-theme-bar
+    colors {
+        background #222222
+	    statusline #dddddd
+        separator #666666
+        focused_workspace #0088CC #0088CC #ffffff
+        active_workspace #333333 #333333 #888888
+        inactive_workspace #333333 #333333 #888888
+        urgent_workspace   #2f343a #900000 #ffffff
+    }
 }
 
 # floating windows
@@ -219,21 +241,24 @@ bindsym $mod+Shift+F9  exec amixer -D pulse sset Master 1%- && pkill -RTMIN+1 i3
 # mute
 bindsym $mod+F11 exec amixer sset Master toggle && killall -USR1 i3blocks
 
+# play-pause
+bindsym $mod+F5 exec playerctl play-pause
+
 #bindsym XF86AudioPlay exec playerctl play
 #bindsym XF86AudioPause exec playerctl pause
 #bindsym XF86AudioNext exec playerctl next
 #bindsym XF86AudioPrev exec playerctl previous
 
-bindsym XF86AudioPlay exec mocp --toggle-pause
-bindsym XF86AudioPause exec mocp --toggle-pause
-bindsym XF86AudioStop exec mocp --togle-pause
-bindsym XF86AudioNext exec mocp --next
-bindsym XF86AudioPrev exec mocp --previous
+#bindsym XF86AudioPlay exec mocp --toggle-pause
+#bindsym XF86AudioPause exec mocp --toggle-pause
+#bindsym XF86AudioStop exec mocp --togle-pause
+#bindsym XF86AudioNext exec mocp --next
+#bindsym XF86AudioPrev exec mocp --previous
 
-bindsym $mod+F5 exec mocp --toggle-pause
-bindsym $mod+F6 exec mocp --stop
-bindsym $mod+F7 exec mocp --previous
-bindsym $mod+F8 exec mocp --next
+#bindsym $mod+F5 exec mocp --toggle-pause
+#bindsym $mod+F6 exec mocp --stop
+#bindsym $mod+F7 exec mocp --previous
+#bindsym $mod+F8 exec mocp --next
 
 # App shortcuts
 #bindsym $mod+w exec "/usr/bin/firefox"
