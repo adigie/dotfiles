@@ -1,7 +1,0 @@
-[Unit]
-Description=Feh service
-
-[Service]
-Type=oneshot
-ExecStart=/usr/bin/bash /home/adi/.fehbg
-
