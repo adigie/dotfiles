@@ -59,3 +59,5 @@ endif
 autocmd Filetype rust nnoremap <buffer> <C-F9> :!clear; cargo build<CR>
 autocmd Filetype rust nnoremap <buffer> <S-F9> :!clear; cargo run<CR>
 
+" lua
+au FileType lua setl sw=2 sts=2
