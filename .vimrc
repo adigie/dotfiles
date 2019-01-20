@@ -16,6 +16,7 @@ Plugin 'scrooloose/nerdtree'
 Plugin 'scrooloose/syntastic'
 Plugin 'davidhalter/jedi-vim'
 Plugin 'rust-lang/rust.vim'
+"Plugin 'majutsushi/tagbar'
 
 call vundle#end()            " required
 filetype plugin indent on    " required
@@ -56,6 +57,5 @@ if executable('rls')
         \ })
 endif
 
-autocmd Filetype rust nnoremap <buffer> <C-F9> :!clear; cargo build<CR>
-autocmd Filetype rust nnoremap <buffer> <S-F9> :!clear; cargo run<CR>
-
+" tagbar
+"nmap <F8> :TagbarToggle<CR>

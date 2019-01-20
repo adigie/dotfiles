@@ -14,20 +14,9 @@ ln -s $ROOT_DIR/.config/i3status ~/.config/i3status
 rm -rf ~/.config/dunst
 ln -s $ROOT_DIR/.config/dunst ~/.config/dunst
 
-rm -f ~/.fehbg
-ln -s $ROOT_DIR/.fehbg ~/.fehbg
-
-rm -f ~/.config/systemd/user/feh.timer
-ln -s $ROOT_DIR/.config/systemd/user/feh.timer ~/.config/systemd/user/feh.timer
-
-rm -f ~/.config/systemd/user/feh.service
-ln -s $ROOT_DIR/.config/systemd/user/feh.service ~/.config/systemd/user/feh.service
-
 rm -f ~/.config/pulse/daemon.conf
 mkdir -p ~/.config/pulse
 ln -s $ROOT_DIR/.config/pulse/daemon.conf ~/.config/pulse/daemon.conf
 
 systemctl --user daemon-reload
-systemctl --user enable feh.timer
-systemctl --user start feh.timer
 

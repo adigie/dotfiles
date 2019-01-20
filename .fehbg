@@ -1,2 +1,2 @@
 #!/bin/sh
-'feh' '--recursive' '--randomize' '--bg-scale' './Documents/wallpapers' 
+feh --bg-fill '/home/adi/Pictures/wallhaven-547016.jpg' 

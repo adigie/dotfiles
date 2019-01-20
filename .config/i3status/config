@@ -17,9 +17,9 @@ general {
 }
 
 order += "volume master"
-order += "disk /"
-order += "disk /data"
+#order += "disk /"
 #order += "disk /home"
+#order += "disk /media/data"
 #order += "run_watch DHCP"
 #order += "ipv6"
 #order += "run_watch VPN"
@@ -78,20 +78,29 @@ cpu_usage {
 
 cpu_temperature 0 {
 	format = " %degrees°C"
+    path = "/sys/devices/platform/coretemp.0/hwmon/hwmon1/temp1_input"
+    max_threshold = 75
 }
 
 disk "/" {
-	format = " %avail"
+	format = " / %avail"
 	prefix_type	= custom
 	low_threshold = 20
 	threshold_type = percentage_avail
 }
 
-disk "/data" {
-        format = " %avail"
-        prefix_type     = custom
-        low_threshold = 20
-        threshold_type = percentage_avail
+disk "/media/data" {
+    format = " /media/data %avail"
+    prefix_type     = custom
+    low_threshold = 20
+    threshold_type = percentage_avail
+}
+
+disk "/home" {
+    format = " /home %avail"
+    prefix_type     = custom
+    low_threshold = 20
+    threshold_type = percentage_avail
 }
 
 

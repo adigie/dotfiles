@@ -154,12 +154,13 @@ mode "$mode_system" {
 }
 bindsym $mod+Shift+p mode "$mode_system"
 
-set $mode_display Display (1) DP+HDMI+LVDS, (2) HDMI+LVDS, (3) LVDS, (4) DP+LVDS
+set $mode_display Display (1) DP+HDMI+LVDS, (2) HDMI+LVDS, (3) LVDS, (4) DP+LVDS, (5) DP
 mode "$mode_display" {
-    bindsym 1 exec --no-startup-id ~/.screenlayout/dp_hdmi_lvds_i3.sh, mode "default"
-    bindsym 2 exec --no-startup-id ~/.screenlayout/hdmi_lvds.sh, mode "default"
-    bindsym 3 exec --no-startup-id ~/.screenlayout/lvds.sh, mode "default"
-    bindsym 4 exec --no-startup-id ~/.screenlayout/dp_lvds.sh, mode "default"
+    bindsym 1 exec --no-startup-id ~/.screenlayout/dp_hdmi_lvds.sh && sleep 3 && ~/.fehbg, mode "default"
+    bindsym 2 exec --no-startup-id ~/.screenlayout/hdmi_lvds.sh && sleep 3 && ~/.fehbg, mode "default"
+    bindsym 3 exec --no-startup-id ~/.screenlayout/lvds.sh && sleep 3 && ~/.fehbg, mode "default"
+    bindsym 4 exec --no-startup-id ~/.screenlayout/dp_lvds.sh && sleep 3 && ~/.fehbg, mode "default"
+    bindsym 5 exec --no-startup-id ~/.screenlayout/dp.sh && sleep 3 && ~/.fehbg, mode "default"
 
     # back to normal: Enter or Escape
     bindsym Return mode "default"
@@ -169,31 +170,31 @@ bindsym $mod+Shift+i mode "$mode_display"
 
 # resize window (you can also use the mouse for that)
 mode "resize" {
-        # These bindings trigger as soon as you enter the resize mode
+    # These bindings trigger as soon as you enter the resize mode
 
-        # Pressing left will shrink the window’s width.
-        # Pressing right will grow the window’s width.
-        # Pressing up will shrink the window’s height.
-        # Pressing down will grow the window’s height.
-        bindsym h resize shrink width 10 px or 10 ppt
-        bindsym j resize grow height 10 px or 10 ppt
-        bindsym k resize shrink height 10 px or 10 ppt
-        bindsym l resize grow width 10 px or 10 ppt
+    # Pressing left will shrink the window’s width.
+    # Pressing right will grow the window’s width.
+    # Pressing up will shrink the window’s height.
+    # Pressing down will grow the window’s height.
+    bindsym h resize shrink width 10 px or 10 ppt
+    bindsym j resize grow height 10 px or 10 ppt
+    bindsym k resize shrink height 10 px or 10 ppt
+    bindsym l resize grow width 10 px or 10 ppt
 
-        bindsym Shift+h resize shrink width 2 px or 2 ppt
-        bindsym Shift+j resize grow height 2 px or 2 ppt
-        bindsym Shift+k resize shrink height 2 px or 2 ppt
-        bindsym Shift+l resize grow width 2 px or 2 ppt
+    bindsym Shift+h resize shrink width 2 px or 2 ppt
+    bindsym Shift+j resize grow height 2 px or 2 ppt
+    bindsym Shift+k resize shrink height 2 px or 2 ppt
+    bindsym Shift+l resize grow width 2 px or 2 ppt
 
-        # same bindings, but for the arrow keys
-        bindsym Left resize shrink width 10 px or 10 ppt
-        bindsym Down resize grow height 10 px or 10 ppt
-        bindsym Up resize shrink height 10 px or 10 ppt
-        bindsym Right resize grow width 10 px or 10 ppt
+    # same bindings, but for the arrow keys
+    bindsym Left resize shrink width 10 px or 10 ppt
+    bindsym Down resize grow height 10 px or 10 ppt
+    bindsym Up resize shrink height 10 px or 10 ppt
+    bindsym Right resize grow width 10 px or 10 ppt
 
-        # back to normal: Enter or Escape
-        bindsym Return mode "default"
-        bindsym Escape mode "default"
+    # back to normal: Enter or Escape
+    bindsym Return mode "default"
+    bindsym Escape mode "default"
 }
 
 bindsym $mod+r mode "resize"
@@ -208,9 +209,11 @@ client.urgent           #2f343a #900000 #ffffff #900000
 # Start i3bar to display a workspace bar (plus the system information i3status
 # finds out, if available)
 bar {
+    i3bar_command i3bar -t
 	status_command i3status
     font pango:DejaVu Sans Mono,FontAwesome 10
     tray_output primary
+    #position top
         
     colors {
         background #222222
@@ -238,6 +241,30 @@ mode "$mode_sound" {
     bindsym Escape mode "default"
 }
 bindsym $mod+Shift+o mode "$mode_sound"
+
+# monitor control
+set $mode_U2717D U2717D: 🔆 (1), 🌗 (2)
+mode "$mode_U2717D" {
+    bindsym 1 exec i3-input -F 'exec ddcutil -n J0XYN77KC35S setvcp 0x10 "%s"' -P 'U2717D 🔆 (0-100): ', mode "default"
+    bindsym 2 exec i3-input -F 'exec ddcutil -n J0XYN77KC35S setvcp 0x12 "%s"' -P 'U2717D 🌗 (0-100): ', mode "default"
+}
+
+set $mode_P2414H P2414H: 🔆 (1), 🌗 (2)
+mode "$mode_P2414H" {
+    bindsym 1 exec i3-input -F 'exec ddcutil -n 36WJX477259L setvcp 0x10 "%s"' -P 'P2414H 🔆 (0-100): ', mode "default"
+    bindsym 2 exec i3-input -F 'exec ddcutil -n 36WJX477259L setvcp 0x12 "%s"' -P 'P2414H 🌗 (0-100): ', mode "default"
+}
+
+set $mode_monitor_select U2717D (1), P2414H (2)
+mode "$mode_monitor_select" {
+    bindsym 1 mode "$mode_U2717D"
+    bindsym 2 mode "$mode_P2414H"
+
+    # back to normal: Enter or Escape
+    bindsym Return mode "default"
+    bindsym Escape mode "default"
+}
+bindsym $mod+Shift+u mode "$mode_monitor_select"
 
 # Multimedia Keys
 
@@ -275,17 +302,22 @@ bindsym $mod+F10      exec playerctl next
 #bindsym $mod+m exec "/usr/local/bin/switch-audio-port"
 
 # Assign workspaces to output
-workspace 1 output DP1 
-workspace 2 output VIRTUAL2
-workspace 3 output LVDS1
+workspace 1 output DP-1 
+workspace 2 output HDMI-1-2
+workspace 3 output LVDS-1
 
 # Autostart apps
-exec --no-startup-id /usr/lib/polkit-gnome/polkit-gnome-authentication-agent-1
+#exec --no-startup-id /usr/lib/polkit-gnome/polkit-gnome-authentication-agent-1
 exec --no-startup-id "compton -cC"
 exec --no-startup-id nm-applet
 exec --no-startup-id blueman-applet
-exec --no-startup-id ~/.screenlayout/dp_hdmi_lvds_i3.sh
+exec --no-startup-id solaar
+exec --no-startup-id ~/.screenlayout/dp_hdmi_lvds.sh
+#exec --no-startup-id ~/.screenlayout/dp_lvds.sh
 exec --no-startup-id ~/.fehbg
-#exec --no-startup-id "nitrogen --restore"
 exec --no-startup-id "sleep 5s && kalu"
 
+
+#gaps inner 15 
+#gaps outer 0
+#for_window [class="^.*"] border pixel 2
