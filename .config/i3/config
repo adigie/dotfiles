@@ -229,6 +229,7 @@ bar {
 # floating windows
 for_window [class="Pavucontrol"] floating enable
 for_window [class="Kalu"] floating enable
+for_window [class="Tk"] floating enable
 
 # sound output menu 
 set $mode_sound Output (i) integrated speakers, (h) hdmi
@@ -243,28 +244,7 @@ mode "$mode_sound" {
 bindsym $mod+Shift+o mode "$mode_sound"
 
 # monitor control
-set $mode_U2717D U2717D: 🔆 (1), 🌗 (2)
-mode "$mode_U2717D" {
-    bindsym 1 exec i3-input -F 'exec ddcutil -n J0XYN77KC35S setvcp 0x10 "%s"' -P 'U2717D 🔆 (0-100): ', mode "default"
-    bindsym 2 exec i3-input -F 'exec ddcutil -n J0XYN77KC35S setvcp 0x12 "%s"' -P 'U2717D 🌗 (0-100): ', mode "default"
-}
-
-set $mode_P2414H P2414H: 🔆 (1), 🌗 (2)
-mode "$mode_P2414H" {
-    bindsym 1 exec i3-input -F 'exec ddcutil -n 36WJX477259L setvcp 0x10 "%s"' -P 'P2414H 🔆 (0-100): ', mode "default"
-    bindsym 2 exec i3-input -F 'exec ddcutil -n 36WJX477259L setvcp 0x12 "%s"' -P 'P2414H 🌗 (0-100): ', mode "default"
-}
-
-set $mode_monitor_select U2717D (1), P2414H (2)
-mode "$mode_monitor_select" {
-    bindsym 1 mode "$mode_U2717D"
-    bindsym 2 mode "$mode_P2414H"
-
-    # back to normal: Enter or Escape
-    bindsym Return mode "default"
-    bindsym Escape mode "default"
-}
-bindsym $mod+Shift+u mode "$mode_monitor_select"
+bindsym $mod+Shift+u exec ~/.ddc_gui.py
 
 # Multimedia Keys
 
