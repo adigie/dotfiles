@@ -33,6 +33,9 @@ set tabstop=4
 set shiftwidth=4
 set expandtab
 
+:set listchars=tab:>·,trail:~,extends:>,precedes:<,space:·
+:set list
+
 " NERDTree
 "autocmd vimenter * NERDTree
 map <C-n> :NERDTreeToggle<CR>
