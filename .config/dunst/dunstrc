@@ -30,7 +30,7 @@ follow = keyboard
 # The width can be negative.  In this case the actual width is the
 # screen width minus the width defined in within the geometry option.
 #geometry = "300x5-30+20"
-geometry = "0x5+20+20"
+geometry = "0x5-40+50"
 
 # Show how many messages are currently hidden (because of geometry).
 indicate_hidden = yes
@@ -52,7 +52,7 @@ notification_height = 0
 # Draw a line of "separator_height" pixel height between two
 # notifications.
 # Set to 0 to disable.
-separator_height = 2
+separator_height = 4
 
 # Padding between text and separator.
 padding = 8
@@ -65,7 +65,7 @@ horizontal_padding = 8
 frame_width = 5
 
 # Defines color of the frame around the notification window.
-frame_color = "#aaaaaa"
+frame_color = "#ff6600"
 
 # Define a color for the separator.
 # possible values are:
@@ -130,7 +130,7 @@ format = "<b>%s</b>\n%b"
 
 # Alignment of message text.
 # Possible values are "left", "center" and "right".
-alignment = center
+alignment = left
 
 # Show age of message if message is older than show_age_threshold
 # seconds.
@@ -246,8 +246,8 @@ context = ctrl+shift+period
 [urgency_low]
 # IMPORTANT: colors have to be defined in quotation marks.
 # Otherwise the "#" and following would be interpreted as a comment.
-    background = "#222222"
-    foreground = "#888888"
+    background = "#444444"
+    forfground = "#ffffff"
     timeout = 10
     # Icon for notifications with low urgency, uncomment to enable
     #icon = /path/to/icon
