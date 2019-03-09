@@ -1,0 +1,4 @@
+xbindkeys
+
+export VDPAU_DRIVER=va_gl
+xset s off
