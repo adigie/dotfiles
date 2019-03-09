@@ -35,7 +35,7 @@ bindsym $mod+Return exec gnome-terminal
 focus_follows_mouse no
 
 # auto back  and forth
-workspace_auto_back_and_forth yes
+workspace_auto_back_and_forth no
 
 # kill focused window
 bindsym $mod+Shift+q kill
@@ -244,7 +244,7 @@ mode "$mode_sound" {
 bindsym $mod+Shift+o mode "$mode_sound"
 
 # monitor control
-bindsym $mod+Shift+u exec ~/.ddc_gui.py
+bindsym $mod+Shift+u exec ~/.ddc-gui.py
 
 # Multimedia Keys
 
@@ -282,7 +282,7 @@ bindsym $mod+F10      exec playerctl next
 #bindsym $mod+m exec "/usr/local/bin/switch-audio-port"
 
 # Assign workspaces to output
-workspace 1 output DP-1 
+workspace 1 output DP-1
 workspace 2 output HDMI-1-2
 workspace 3 output LVDS-1
 
@@ -292,6 +292,8 @@ exec --no-startup-id "compton -cC"
 exec --no-startup-id nm-applet
 exec --no-startup-id blueman-applet
 exec --no-startup-id solaar
+exec --no-startup-id pasystray
+exec --no-startup-id dunst
 exec --no-startup-id ~/.screenlayout/dp_hdmi_lvds.sh
 #exec --no-startup-id ~/.screenlayout/dp_lvds.sh
 exec --no-startup-id ~/.fehbg
@@ -301,3 +303,5 @@ exec --no-startup-id "sleep 5s && kalu"
 #gaps inner 15 
 #gaps outer 0
 #for_window [class="^.*"] border pixel 2
+
+bindsym --release button2 kill
