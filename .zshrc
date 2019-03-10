@@ -74,6 +74,7 @@ plugins=(
   ssh-agent
   tig
   jump
+  vi-mode
 )
 
 source $ZSH/oh-my-zsh.sh
