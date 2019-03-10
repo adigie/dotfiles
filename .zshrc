@@ -111,6 +111,8 @@ export SSH_KEY_PATH="~/.ssh/rsa_id"
 alias ls='lsd'
 alias ll='ls -l'
 
+alias tag='tig --all'
+
 #fzf
 source /usr/share/fzf/key-bindings.zsh
 source /usr/share/fzf/completion.zsh
