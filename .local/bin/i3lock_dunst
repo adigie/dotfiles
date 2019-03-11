@@ -1,0 +1,5 @@
+#!/usr/bin/env bash
+
+pkill -u $USER -USR1 dunst
+i3lock -n -c 475263
+pkill -u $USER -USR2 dunst
