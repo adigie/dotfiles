@@ -1,0 +1,14 @@
+#!/usr/bin/env bash
+
+DIR="$( cd "$( dirname "${BASH_SOURCE[0]}" )" >/dev/null 2>&1 && pwd )"
+
+stow -d $DIR -t ~ .
+
+systemctl --user enable dunst.service
+systemctl --user start dunst.service
+
+systemctl --user enable suspend.service
+
+systemctl --user enable watch_sleep.service
+systemctl --user start watch_sleep.service
+
