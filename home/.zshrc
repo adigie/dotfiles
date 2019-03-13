@@ -13,7 +13,7 @@ ZSH_THEME="agnoster"
 
 POWERLEVEL9K_MODE='nerdfont-complete'
 POWERLEVEL9K_LEFT_PROMPT_ELEMENTS=(context dir dir_writable newline vcs virtualenv)
-POWERLEVEL9K_RIGHT_PROMPT_ELEMENTS=(status vi_mode root_indicator background_jobs history time)
+POWERLEVEL9K_RIGHT_PROMPT_ELEMENTS=(status root_indicator background_jobs history time)
 source /usr/share/zsh-theme-powerlevel9k/powerlevel9k.zsh-theme
 
 # Set list of themes to pick from when loading at random
@@ -79,7 +79,6 @@ plugins=(
   ssh-agent
   tig
   jump
-  vi-mode
 )
 
 source $ZSH/oh-my-zsh.sh
