@@ -80,11 +80,22 @@ ZSH_THEME="powerlevel10k/powerlevel10k"
 # Add wisely, as too many plugins slow down shell startup.
 plugins=(
 	git
-	fzf
-	ssh-agent
 	jump
+	ssh-agent
 	thefuck
+  # vi-mode
+  # must be after vi-mode
+	fzf
 )
+
+# fzf
+
+# ssh-agent
+zstyle :omz:plugins:ssh-agent agent-forwarding yes
+zstyle :omz:plugins:ssh-agent quiet yes
+
+# vi-mode
+VI_MODE_RESET_PROMPT_ON_MODE_CHANGE=true
 
 source $ZSH/oh-my-zsh.sh
 
