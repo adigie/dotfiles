@@ -4,6 +4,9 @@ live_config_reload = true
 normal = { family = "CaskaydiaCove NFM", style = "Regular" }
 size = 13
 
+[window]
+dimensions = { columns = 120, lines = 32 }
+
 # Colors (Tokyo Night Storm variant)
 # Source https//github.com/zatchheems/tokyo-night-alacritty-theme
 
@@ -41,5 +44,4 @@ TERM = "xterm-256color"
 bindings = [
   # { key = "K", mods = "Control", action = "ClearHistory" },
   # { key = "K", mods = "Control", chars = "\u000c" },
-  { key = "R", mods = "Alt", chars ="run update_dtb update_kernel && boot" }
 ]
