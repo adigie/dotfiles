@@ -124,5 +124,8 @@ alias vi="nvim"
 alias vim="nvim"
 alias lg="lazygit"
 
+# Fix openSUSE WSL2 tmux issue
+export TMUX_TMPDIR='/tmp'
+
 # starship
 eval "$(starship init zsh)"
