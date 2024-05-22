@@ -85,6 +85,7 @@ plugins=(
 
 # ssh-agent
 zstyle :omz:plugins:ssh-agent agent-forwarding yes
+zstyle :omz:plugins:ssh-agent lazy yes
 zstyle :omz:plugins:ssh-agent quiet yes
 
 # vi-mode
