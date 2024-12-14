@@ -79,6 +79,7 @@ plugins=(
   # vi-mode
   # must be after vi-mode
 	fzf
+	direnv
 )
 
 # fzf
