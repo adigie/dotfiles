@@ -1,7 +1,7 @@
 live_config_reload = true
 
 [font]
-normal = { family = "CaskaydiaCove NFM", style = "Regular" }
+normal = { family = "CaskaydiaCove NF", style = "Regular" }
 size = 13
 
 [window]
