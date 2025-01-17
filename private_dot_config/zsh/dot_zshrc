@@ -98,6 +98,9 @@ zstyle :omz:plugins:ssh-agent quiet yes
 # vi-mode
 VI_MODE_RESET_PROMPT_ON_MODE_CHANGE=true
 
+fpath+=${ZSH_CUSTOM:-${ZSH:-~/.oh-my-zsh}/custom}/plugins/completions
+fpath+=${ZSH_CUSTOM:-${ZSH:-~/.oh-my-zsh}/custom}/plugins/zsh-completions/src
+
 source $ZSH/oh-my-zsh.sh
 
 # User configuration
