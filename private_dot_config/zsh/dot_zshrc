@@ -123,6 +123,9 @@ alias clear="clear && echo -e '\e[3J' && clear"
 alias vi="nvim"
 alias vim="nvim"
 alias lg="lazygit"
+alias ls="eza"
+alias ll="eza -l"
+alias la="eza -la"
 
 # Fix openSUSE WSL2 tmux issue
 export TMUX_TMPDIR='/tmp'
