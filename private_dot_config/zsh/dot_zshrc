@@ -2,7 +2,11 @@
 # export PATH=$HOME/bin:/usr/local/bin:$PATH
 export PATH=$HOME/.local/bin:$PATH
 export PATH=$HOME/bin:$PATH
+export PATH=$HOME/.cargo/bin:$PATH
 export PATH=/snap/bin:$PATH
+export PATH=/usr/lib/cargo/bin:$PATH
+
+. "$HOME/.cargo/env"
 
 # Path to your oh-my-zsh installation.
 export ZSH="$HOME/.config/oh-my-zsh"
