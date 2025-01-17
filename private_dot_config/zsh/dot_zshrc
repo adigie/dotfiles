@@ -76,7 +76,6 @@ plugins=(
 	jump
 	ssh-agent
 	thefuck
-  # vi-mode
   # must be after vi-mode
 	fzf
 )
