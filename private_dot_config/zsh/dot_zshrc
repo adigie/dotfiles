@@ -78,6 +78,7 @@ plugins=(
 	thefuck
   # must be after vi-mode
 	fzf
+	direnv
 )
 
 # fzf
