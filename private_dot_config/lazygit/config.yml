@@ -5,3 +5,9 @@ os:
   editPreset: "nvim"
 gui:
   switchTabsWithPanelJumpKeys: true
+  showNumstatInFilesView: true
+  expandFocusedSidePanel: true
+  nerdFontsVersion: "3"
+  filterMode: fuzzy
+notARepository: skip
+promptToReturnFromSubprocess: false
