@@ -82,7 +82,6 @@ plugins=(
 	git
 	jump
 	ssh-agent
-	thefuck
   # must be after vi-mode
 	fzf
 	direnv
