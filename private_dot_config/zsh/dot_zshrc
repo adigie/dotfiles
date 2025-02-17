@@ -9,6 +9,9 @@ export PATH=/usr/lib/cargo/bin:$PATH
 
 . "$HOME/.cargo/env"
 
+export NVM_DIR="$HOME/.nvm"
+[ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
+
 # Path to your oh-my-zsh installation.
 export ZSH="$HOME/.config/oh-my-zsh"
 
