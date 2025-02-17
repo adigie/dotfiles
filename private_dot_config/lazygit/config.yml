@@ -3,3 +3,5 @@ git:
     signOff: true
 os:
   editPreset: "nvim"
+gui:
+  switchTabsWithPanelJumpKeys: true
