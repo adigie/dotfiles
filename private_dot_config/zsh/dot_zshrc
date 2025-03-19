@@ -135,9 +135,9 @@ source $ZSH/oh-my-zsh.sh
 # alias ohmyzsh="mate ~/.oh-my-zsh"
 
 alias clear="clear && echo -e '\e[3J' && clear"
-alias vi="nvim"
-alias vim="nvim"
-alias lg="lazygit"
+alias vi="LD_LIBRARY_PATH= nvim"
+alias vim="LD_LIBRARY_PATH= nvim"
+alias lg="LD_LIBRARY_PATH= lazygit"
 alias ls="eza"
 alias ll="eza -l"
 alias la="eza -la"
